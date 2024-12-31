@@ -1,0 +1,10 @@
+release/alarmdialog.o
+release/calculatedialog.o
+release/generatepseudo.o
+release/main.o
+release/mainwindow.o
+release/pseudosensor.o
+release/moc_alarmdialog.o
+release/moc_calculatedialog.o
+release/moc_generatepseudo.o
+release/moc_mainwindow.o

@@ -3,6 +3,7 @@
 
 #include "ui_mainwindow.h"
 #include "pseudosensor.h"
+#include "generatepseudo.h"
 
 #include <QSqlDatabase>
 #include <QMainWindow>
@@ -45,6 +46,8 @@ private:
     QLineSeries *seriesCelsius = new QLineSeries();
     QLineSeries *seriesHumidity = new QLineSeries();
 
+    GeneratePseudo generatePseudo;
+
     void showTemperature(double temperature);
     void initTableWidget();
     void initChart();
@@ -62,5 +65,6 @@ private slots:
     void on_comboBox_currentIndexChanged(int index);
     void on_pushButtonCalculate_clicked();
     void on_pushButtonAlarm_clicked();
+    void updateValues(double temperature, double humidity);
 };
 #endif // MAINWINDOW_H

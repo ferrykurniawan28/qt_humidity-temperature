@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     alarmdialog.cpp \
     calculatedialog.cpp \
+    generatepseudo.cpp \
     main.cpp \
     mainwindow.cpp \
     pseudosensor.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     alarmdialog.h \
     calculatedialog.h \
+    generatepseudo.h \
     mainwindow.h \
     pseudosensor.h
 

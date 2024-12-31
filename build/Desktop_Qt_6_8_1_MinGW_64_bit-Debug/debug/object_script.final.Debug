@@ -1,0 +1,10 @@
+debug/alarmdialog.o
+debug/calculatedialog.o
+debug/generatepseudo.o
+debug/main.o
+debug/mainwindow.o
+debug/pseudosensor.o
+debug/moc_alarmdialog.o
+debug/moc_calculatedialog.o
+debug/moc_generatepseudo.o
+debug/moc_mainwindow.o

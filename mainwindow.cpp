@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     initChart();
+
+    connect(&generatePseudo, &GeneratePseudo::sendValues, this, &MainWindow::updateValues);
 }
 
 MainWindow::~MainWindow() {}
@@ -86,29 +88,36 @@ void MainWindow::on_pushButtonSingle_clicked()
 
 void MainWindow::on_pushButtonMultiple_clicked()
 {
-    for (int i = 0; i < 10; i++) {
-        auto values = sensor.generateValues();
+    generatePseudo.start();
 
-        humidityList.append(values.first);
-        temperatureList.append(values.second);
+    // get the values from the pseudo sensor
 
-        lcdHumidity->display(values.first);
-        showTemperature(values.second);
 
-        //timestamp
-        QDateTime dateTime = QDateTime::currentDateTime();
-        QString timestamp = dateTime.toString("yyyy-MM-dd hh:mm:ss");
 
-        qDebug() << "Humidity: " << values.first << " Temperature: " << values.second << " Timestamp: " << timestamp;
 
-        insertData(values.first, values.second);
+    // for (int i = 0; i < 10; i++) {
+    //     auto values = sensor.generateValues();
 
-        alarmWarning();
+    //     humidityList.append(values.first);
+    //     temperatureList.append(values.second);
 
-        QCoreApplication::processEvents();
+    //     lcdHumidity->display(values.first);
+    //     showTemperature(values.second);
 
-        QThread::sleep(1);
-    }
+    //     //timestamp
+    //     QDateTime dateTime = QDateTime::currentDateTime();
+    //     QString timestamp = dateTime.toString("yyyy-MM-dd hh:mm:ss");
+
+    //     qDebug() << "Humidity: " << values.first << " Temperature: " << values.second << " Timestamp: " << timestamp;
+
+    //     insertData(values.first, values.second);
+
+    //     alarmWarning();
+
+    //     QCoreApplication::processEvents();
+
+    //     QThread::sleep(1);
+    // }
 }
 
 
@@ -183,6 +192,21 @@ void MainWindow::on_pushButtonAlarm_clicked()
     }
 
     insertAlarmData(upperHumidity, lowerHumidity, upperTemperature, lowerTemperature);
+}
+
+void MainWindow::updateValues(double temperature, double humidity)
+{
+    qDebug() << "Temperature: " << temperature << " Humidity: " << humidity;
+
+    humidityList.append(humidity);
+    temperatureList.append(temperature);
+
+    lcdHumidity->display(humidity);
+    showTemperature(temperature);
+
+    insertData(humidity, temperature);
+
+    alarmWarning();
 }
 
 
