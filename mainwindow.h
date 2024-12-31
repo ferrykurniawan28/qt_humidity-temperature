@@ -66,5 +66,6 @@ private slots:
     void on_pushButtonCalculate_clicked();
     void on_pushButtonAlarm_clicked();
     void updateValues(double temperature, double humidity);
+    void on_pushButtonClose_clicked();
 };
 #endif // MAINWINDOW_H

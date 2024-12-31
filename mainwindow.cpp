@@ -577,3 +577,10 @@ void MainWindow::alarmWarning()
     }
 }
 
+
+void MainWindow::on_pushButtonClose_clicked()
+{
+    db.close();
+    close();
+}
+

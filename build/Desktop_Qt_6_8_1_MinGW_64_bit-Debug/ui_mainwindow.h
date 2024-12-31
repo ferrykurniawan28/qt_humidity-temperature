@@ -70,6 +70,7 @@ public:
     QPushButton *pushButtonMultiple;
     QPushButton *pushButtonCalculate;
     QPushButton *pushButtonAlarm;
+    QPushButton *pushButtonClose;
     QTabWidget *tabWidget;
     QWidget *tabHistory;
     QGridLayout *gridLayout_2;
@@ -272,6 +273,11 @@ public:
 
         horizontalLayout_3->addWidget(pushButtonAlarm);
 
+        pushButtonClose = new QPushButton(frameButton);
+        pushButtonClose->setObjectName("pushButtonClose");
+
+        horizontalLayout_3->addWidget(pushButtonClose);
+
 
         verticalLayout->addWidget(frameButton);
 
@@ -347,6 +353,7 @@ public:
         pushButtonMultiple->setText(QCoreApplication::translate("MainWindow", "Get 10!", nullptr));
         pushButtonCalculate->setText(QCoreApplication::translate("MainWindow", "Calculate!", nullptr));
         pushButtonAlarm->setText(QCoreApplication::translate("MainWindow", "Set Alarm!", nullptr));
+        pushButtonClose->setText(QCoreApplication::translate("MainWindow", "Close", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabHistory), QCoreApplication::translate("MainWindow", "History", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabChart), QCoreApplication::translate("MainWindow", "Chart", nullptr));
     } // retranslateUi
